@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import "./Home.css";
-import AskQuestion from "../AskQuestion/AskQuestion";
+import AskQuestion from "../Askquestion/Askquestion";
 import Answer from "../AnsQuestion/AnsQuestion";
 import Question from "../Community/Question";
 import axios from "axios";
@@ -21,7 +21,7 @@ const Home = ({ logout }) => {
     const fetchQuestions = async () => {
       // console.log(">>>>>>>>Home useEffect >> fetchQuestions: 1");
 
-      let questions = await axios.get("http://localhost:4000/api/questions");
+      let questions = await axios.get(`${process.env.REACT_APP_base_url} /api/questions`);
       // console.log(">>>>>>>>Home useEffect >> fetchQuestions: 2");
 
       questions = questions.data.data;

@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./AskQuestion.css";
+import "./Askquestion.css";
 import Header from "../Header/Header";
 import LandingPage from "../MiddleSection/LandingPage";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/UserContext";
 
-function AskQuestion() {
+function Askquestion() {
   const [form, setForm] = useState({});
   const [userData, setUserData] = useContext(UserContext);
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function AskQuestion() {
       console.log(form);
 
       //sending data to be registered in database
-      await axios.post("http://localhost:4000/api/questions", {
+      await axios.post(`${process.env.REACT_APP_base_url}/api/questions`, {
         title: form.title,
         description: form.description,
         userId: userData.user.id,
@@ -108,4 +108,4 @@ function AskQuestion() {
   );
 }
 
-export default AskQuestion;
+export default Askquestion;

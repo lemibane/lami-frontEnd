@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { UserContext } from "./context/UserContext";
-import AskQuestion from "./Pages/AskQuestion/AskQuestion";
+import Askquestion from "./Pages/Askquestion/Askquestion";
 import AnsQuestion from "./Pages/AnsQuestion/AnsQuestion";
 import Footer from "./Pages/Footer/Footer";
 import Header from "./Pages/Header/Header";
@@ -23,7 +23,7 @@ function App() {
       token = "";
     } else {
       //if token exists in localStorage then use auth to verify token and get user info
-      const userRes = await axios.get("http://localhost:4000/api/users", {
+      const userRes = await axios.get(`${process.env.REACT_APP_base_url} /api/users`, {
         headers: { "x-auth-token": token },
       });
 
@@ -71,7 +71,7 @@ function App() {
 
           {/* Newly added routes */}
 
-          <Route path="/ask" element={<AskQuestion />} />
+          <Route path="/ask" element={<Askquestion />} />
           {/* <Route path={`/answer`} element={<AnsQuestion />} /> */}
           <Route path={`/answer/:questionId`} element={<AnsQuestion />} />
         </Routes>

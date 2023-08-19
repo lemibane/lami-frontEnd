@@ -34,7 +34,7 @@ function AnsQuestion(props) {
       // await axios.post("http://localhost:4000/api/questions", {
       //   answer: answer.answer,
       // });
-      await axios.post("http://localhost:4000/api/answers", {
+      await axios.post(`${process.env.REACT_APP_base_url}/api/answers`, {
         answer: answer.answer,
         questionId: answer.questionId,
         userId: answer.userId,
@@ -56,7 +56,7 @@ function AnsQuestion(props) {
     // setAskedQuestion(question);
     const fetchAnswers = async () => {
       const answers = await axios.get(
-        `http://localhost:4000/api/answers/${questionId}`
+        `${process.env.REACT_APP_base_url}/api/answers/${questionId}`
       );
       // console.log(answers.data);
       // console.log(answers.data.data);

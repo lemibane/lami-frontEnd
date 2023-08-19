@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import logo from "../../images/evangadi-logo-home.png";
+import logo from "../../images/lemip.jpg";
 import { Link } from "react-router-dom";
 
 function Header({ logout }) {
